@@ -3,6 +3,11 @@ name: Workflow commands demo
 on: [push]
 
 jobs: 
+    set-env:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Set environment variable
+            run: echo "MY_VAR=TestThis" >> $GITHUB_ENV
     workflow-commands:
         runs-on: ubuntu-latest
         steps:
@@ -12,4 +17,4 @@ jobs:
               echo "::group::This is the start of the group."
               echo "This is a log message inside the group."
               echo "::endgroup::This is the end of the group."
-              echo "This is another log message outside of the group."
+              echo "This is another log message outside of the group for $MY_VAR."
