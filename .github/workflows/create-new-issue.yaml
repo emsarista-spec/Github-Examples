@@ -1,0 +1,20 @@
+name: Auto comment on new issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add-comment:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write # Grant write permission to the GITHUB_TOKEN for issues
+    steps:
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v5
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            👋 Thanks for opening this issue!
+            A maintainer will review it shortly.
+            Please provide any additional context in subsequent comments.
