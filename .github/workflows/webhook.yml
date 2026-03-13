@@ -1,4 +1,4 @@
-name: "Webhook Event example"
+name: "Webhook Event example workflow"
 
 on:
   repository_dispatch:
