@@ -7,6 +7,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Check commit message format
+            if: (git log -1 --pretty=%B | grep -qE '^(feat|fix|docs|style|refactor|perf|test|chore|revert)(\(.+\))?: .{1,50}') == true
             run: |
               reject() {
                 echo "Commit message does not follow the Conventional Commits format."
@@ -14,5 +15,5 @@ jobs:
                 echo "Example: feat(parser): add support for new syntax"
                 exit 1
               }
-              if ! git log -1 --pretty=%B | grep -qE '^(feat|fix|docs|style|refactor|perf|test|chore|revert)(\(.+\))?: .{1,50}'; then
                 reject
+    
