@@ -1,8 +1,7 @@
 on:
   schedule:
-    - cron: '*/2 * * * *'
-    branches:
-      - main
+    - cron: '*/5 * * * *'
+    
 
 jobs:
   hello_world:
