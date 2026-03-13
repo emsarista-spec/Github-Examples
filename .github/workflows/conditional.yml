@@ -13,6 +13,9 @@ jobs:
       - name: "Goodbye Moon"
         run:  echo "Goodbye Moon!"
         
+  check-gbye-moon:
+    runs-on: ubuntu-latest
+    steps:
       - name: "check goodbye moon"  
         if: success()
         run: echo "This will run if goodbye moon step succeeded"
