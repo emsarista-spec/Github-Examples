@@ -12,3 +12,7 @@ jobs:
     steps:
       - name: "Goodbye Moon"
         run:  echo "Goodbye Moon!"
+        
+      - name: "check goodbye moon"  
+        if: success()
+        run: echo "This will run if goodbye moon step succeeded"
