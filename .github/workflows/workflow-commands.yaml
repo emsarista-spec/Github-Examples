@@ -2,6 +2,7 @@ name: Workflow commands demo - variables
 on: [push]
 env: 
     MY_VAR: "TestThis WORKFLOW LEVEL"
+    BRANCH: ${{ github.ref }}
 
 jobs:
     set-env:
@@ -22,8 +23,8 @@ jobs:
             run: |
               echo "This is a log message for the set-env job ${{env.MY_VAR}}"
               echo "This is a log message for the set-env job MYVAR2 ${{env.MY_VAR2}}" 
-              echo "This is a log message for the set-env job BRANCH ${{env.BRANCH}}"   
+              echo "This is a log message for the set-env job BRANCH ${{env.BRANCH}}"  
+              echo "This is a log message for the set-env job ACTOR ${{env.ACTION_ACTOR}}" 
             env:
               ACTION_ACTOR: ${{ github.actor }}
-              BRANCH: ${{ github.ref }}
             
