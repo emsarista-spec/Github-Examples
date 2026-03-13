@@ -2,12 +2,14 @@ name: Workflow commands demo
 
 on: [push]
 
-jobs: 
+jobs:
     set-env:
         runs-on: ubuntu-latest
+        env: 
+            MY_VAR: "TestThis SETENV JOB"
         steps:
           - name: Set environment variable
-            run: echo "MY_VAR=TestThis" >> $GITHUB_ENV
+            run: echo "MY_VAR=Hello from the environment variable!" >> $GITHUB_ENV
     workflow-commands:
         runs-on: ubuntu-latest
         steps:
