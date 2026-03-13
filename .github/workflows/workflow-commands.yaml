@@ -10,6 +10,7 @@ jobs:
         steps:
           - name: Set environment variable
             run: echo "MY_VAR=Hello from the environment variable!" >> $GITHUB_ENV
+                echo "This is a log message for the set-env job $MY_VAR."
     workflow-commands:
         runs-on: ubuntu-latest
         steps:
