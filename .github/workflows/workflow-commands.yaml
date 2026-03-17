@@ -18,13 +18,15 @@ jobs:
             run: echo "MYVAR2 logs $MY_VAR2"
     workflow-commands:
         runs-on: ubuntu-latest
+        needs: set-env
         steps:
           - name: group logging
             run: |
               echo "This is a log message for the set-env job ${{env.MY_VAR}}"
               echo "This is a log message for the set-env job MYVAR2 ${{env.MY_VAR2}}" 
               echo "This is a log message for the set-env job BRANCH ${{env.BRANCH}}"  
-              echo "This is a log message for the set-env job ACTOR ${{env.ACTION_ACTOR}}" 
+              echo "This is a log message for the set-env job ENV action ACTOR ${{env.ACTION_ACTOR}}" 
+              echo "Commit ID for this is  ${{github.sha}} by ${{github.actor}}"
             env:
               ACTION_ACTOR: ${{ github.actor }}
             
