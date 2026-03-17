@@ -26,7 +26,7 @@ jobs:
               echo "This is a log message for the set-env job MYVAR2 ${{env.MY_VAR2}}" 
               echo "This is a log message for the set-env job BRANCH ${{env.BRANCH}}"  
               echo "This is a log message for the set-env job ENV action ACTOR ${{env.ACTION_ACTOR}}" 
-              echo "Commit ID for this is  ${{github.sha}} by ${{github.actor}} on branch ${{github.ref}} with workflow ${{github.workflow}} and repo ${{github.repository}}"
+              echo "Commit ID for this is  ${{github.sha}} by ${{github.actor}} on branch ${{github.ref_name}} with workflow ${{github.workflow}} and repo ${{github.repository}}"
             env:
               ACTION_ACTOR: ${{ github.actor }}
             
